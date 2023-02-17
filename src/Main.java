@@ -21,7 +21,8 @@ public class Main {
                 + "\n2. Mostrar turno actual"
                 + "\n3. Pasar turno"
                 + "\n4. Seguir"
-                + "\n5. Cerrar programa");
+                + "\n5. Imprimir fila completa"
+                + "\n6. Cerrar programa");
             option = sc.nextInt();
             switch (option){
                 case 1:
@@ -29,7 +30,6 @@ public class Main {
                             new Turno(turnos)
                     );
                     turnos += 1;
-                    fila.print();
                     break;
                 case 2:
                     if (fila.getActual() == 0) System.out.println("No hay turnos aun");
@@ -39,9 +39,12 @@ public class Main {
                     fila.pasarturno();
                     break;
                 case 4:
-
+                    fila.seguir();
                     break;
                 case 5:
+                    fila.print();
+                    break;
+                case 6:
                     start = true;
                     break;
                 default:

@@ -59,4 +59,10 @@ public class Fila {
         if (actual.getVuelta() == 3) removeNode(actual.getNumber());
     }
 
+    public void seguir (){
+        actual = actual.getNext();
+        actual.sumarVuelta();
+        removeNode(actual.getPrevious().getNumber());
+    }
+
 }
