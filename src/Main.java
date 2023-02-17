@@ -1,5 +1,51 @@
+import java.util.Scanner;
+
 public class Main {
+
+    public static Scanner sc = new Scanner(System.in);
+    public static Fila fila = new Fila();
+    public static int turnos = 1;
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        menu();
+    }
+
+    public static void menu (){
+
+        boolean start = false;
+        int option;
+
+        while (!start){
+
+            System.out.println("1. Dar turno"
+                + "\n2. Mostrar turno actual"
+                + "\n3. Pasar turno"
+                + "\n4. Seguir"
+                + "\n5. Cerrar programa");
+            option = sc.nextInt();
+            switch (option){
+                case 1:
+                    fila.addTurno(
+                            new Turno(turnos)
+                    );
+                    turnos += 1;
+                    fila.print();
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    start = true;
+                    break;
+                default:
+                    System.out.println(option + "No es una opcion disponible");
+            }
+        }
     }
 }

@@ -1,53 +1,52 @@
-public class CircularList {
-    private Node head;
-    private Node tail;
+public class Fila {
+    private Turno head;
 
-    public void addNode (Node node){
+
+    public void addTurno (Turno turno){
 
         if (head == null) {
-            this.head = node;
+            this.head = turno;
             this.head.setNext(head);
             this.head.setPrevious(head);
             return;
         }
-        Node lastPrev = head.getPrevious();
-        head.setPrevious(node); node.setNext(head);
-        lastPrev.setNext(node); node.setPrevious(lastPrev);
+        Turno lastPrev = head.getPrevious();
+        head.setPrevious(turno); turno.setNext(head);
+        lastPrev.setNext(turno); turno.setPrevious(lastPrev);
     }
 
-    public void removeNode (String name){
+    public void removeNode (int number){
 
-        if (head.getName().equals(name)){
+        if (head.getNumber() == number){
             head.getPrevious().setNext(head.getNext());
             head.getNext().setPrevious(head.getPrevious());
             this.head = head.getNext();
             return;
         }
 
-        removeNode(head.getNext(),name);
+        removeNode(head.getNext(),number);
     }
 
-    private void removeNode (Node current, String name) {
+    private void removeNode (Turno current, int number) {
 
         if (current.equals(head)) return;
-        if (current.getName().equals(name)){
+        if (current.getNumber() == number){
             current.getPrevious().setNext(current.getNext());
             current.getNext().setPrevious(current.getPrevious());
         }
-        removeNode(current.getNext(),name);
+        removeNode(current.getNext(),number);
     }
 
     public void print (){
         if (head == null) return;
-        System.out.println(head.getName());
+        System.out.println(head.getNumber());
         print(head.getNext());
     }
 
-    private void print (Node current){
+    private void print (Turno current){
         if (current.equals(head)) return;
-        System.out.println(current.getName());
+        System.out.println(current.getNumber());
         print(current.getNext());
     }
-
 
 }
