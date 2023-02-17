@@ -34,4 +34,12 @@ public class Turno {
     public void setPrevious(Turno previous) {
         this.previous = previous;
     }
+
+    public int getVuelta() {
+        return vuelta;
+    }
+
+    public void sumarVuelta() {
+        this.vuelta += 1;
+    }
 }

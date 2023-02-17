@@ -32,10 +32,11 @@ public class Main {
                     fila.print();
                     break;
                 case 2:
-
+                    if (fila.getActual() == 0) System.out.println("No hay turnos aun");
+                    else System.out.println("Turno " + fila.getActual());
                     break;
                 case 3:
-
+                    fila.pasarturno();
                     break;
                 case 4:
 

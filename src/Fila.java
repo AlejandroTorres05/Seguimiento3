@@ -1,14 +1,13 @@
 public class Fila {
+
+    public Turno actual;
     private Turno head;
-
-
     public void addTurno (Turno turno){
 
         if (head == null) {
-            this.head = turno;
-            this.head.setNext(head);
-            this.head.setPrevious(head);
-            return;
+            this.head = turno; this.head.setNext(head);
+            this.head.setPrevious(head); actual = head;
+            head.sumarVuelta(); return;
         }
         Turno lastPrev = head.getPrevious();
         head.setPrevious(turno); turno.setNext(head);
@@ -47,6 +46,17 @@ public class Fila {
         if (current.equals(head)) return;
         System.out.println(current.getNumber());
         print(current.getNext());
+    }
+
+    public int getActual (){
+        if (head == null) return 0;
+        return actual.getNumber();
+    }
+
+    public void pasarturno (){
+
+        actual = actual.getNext(); actual.sumarVuelta();
+        if (actual.getVuelta() == 3) removeNode(actual.getNumber());
     }
 
 }
